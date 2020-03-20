@@ -1,0 +1,26 @@
+name: Go
+
+on:
+    push:
+        branches: [master]
+    pullrequest:
+        branches: [master]
+
+job:
+    build:
+        name: Build
+        runns-on: [ubuntu-latest]
+
+        steps:
+        - name: Setup Go
+          uses: actions/setup-go@v1
+          with:
+            go-version: [1.13.x, 1.14.x]
+          id: go
+
+        -  name: Checkout code
+           uses: actions/checkuot@v2
+        
+        -  name: Build App
+           run: go build simulator.go
+            
