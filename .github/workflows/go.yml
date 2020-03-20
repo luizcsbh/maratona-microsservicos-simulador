@@ -1,26 +1,21 @@
 name: Go
-
 on:
     push:
         branches: [master]
     pull_request:
         branches: [master]
-
 jobs:
     build:
         name: Build
         runs-on: ubuntu-latest
-
         steps:
         - name: Setup Go
           uses: actions/setup-go@v1
           with:
-            go-version: 1.14.x
+            go-version: 1.14
           id: go
-
         -  name: Checkout code
            uses: actions/checkuot@v2
-        
         -  name: Build App
            run: go build simulator.go
             
